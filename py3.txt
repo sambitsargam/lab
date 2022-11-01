@@ -1,0 +1,368 @@
+#reverse of number
+
+num = int(input("Enter a positive integer: "))
+temp = num
+rev_no=0
+while temp>0:
+    digit = temp%10
+    rev_no= digit + rev_no*10
+    temp= int(temp/10)
+print("Reverse of",num,"is",rev_no)
+
+
+#sum of digits
+
+num = input("Enter Number: ")
+sum = 0
+for i in num:
+    sum = sum + int(i)
+print("Required Sum: ",sum)
+
+
+
+#palindrome check(number)
+
+num=int(input("Enter a number:"))
+temp=num
+rev=0
+while(num>0):
+    dig=num%10
+    rev=rev*10+dig
+    num=num//10
+if(temp==rev):
+    print("The number is palindrome!")
+else:
+    print("Not a palindrome!")
+
+
+
+#palindrome check(string)
+
+string = input("Enter string : ")
+revstr = "" 
+for i in string: 
+    revstr = i + revstr
+print("Reversed string : ",revstr) 
+if(string == revstr): 
+    print("The string is a palindrome") 
+else: 
+    print("The string is not a palindrome") 
+
+
+
+#decimal to binary
+
+print("Enter Decimal Number: ", end="")
+dnum = int(input())
+bnum = 0
+mul = 1
+while dnum>0:
+    rem = dnum%2
+    bnum = bnum+(rem*mul)
+    mul = mul*10
+    dnum = int(dnum/2)
+print("\nEquivalent Binary Value =", bnum)
+
+
+
+#binary to decimal
+
+print("Enter the Binary Number: ")
+bnum = int(input())
+dnum = 0
+i = 1
+while bnum!=0:
+    rem = bnum%10
+    dnum = dnum + (rem*i)
+    i = i*2
+    bnum = int(bnum/10)
+print("\nEquivalent Decimal Value = ", dnum)
+
+
+
+#prime check
+
+print("Enter the Number: ")
+num = int(input())
+p = 0
+for i in range(2, num):
+    if num%i==0:
+        p = 1
+        break
+if p==0:
+    print("\nIt is a Prime Number")
+else:
+    print("\nIt is not a Prime Number")
+
+
+
+#lcm and gcd
+
+print("Enter Two Numbers: ", end="")
+no = int(input())
+nt = int(input())
+a = no
+b = nt
+while b!=0:
+    temp = b
+    b = a%b
+    a = temp
+hcf = a
+lcm = int((no*nt)/hcf)
+print("\nLCM (" + str(no) + ", " + str(nt) + ") = ", lcm)
+print("HCF (" + str(no) + ", " + str(nt) + ") = ", hcf)
+
+
+
+#count positive,negative,zero
+
+nums = []
+totPositive = 0
+totNegative = 0
+totZero = 0
+print(end="Enter the Size: ")
+s = int(input())
+print(end="Enter " +str(s)+ " Numbers: ")
+for i in range(s):
+  nums.insert(i, int(input()))
+for i in range(s):
+  if nums[i]>0:
+    totPositive = totPositive+1
+  elif nums[i]<0:
+    totNegative = totNegative+1
+  else:
+    totZero = totZero+1
+print(end="\nPositive Number(s): " +str(totPositive))
+print("\nNegative Number(s): " +str(totNegative))
+print("Zero(s): " +str(totZero))
+
+
+
+#max and min
+
+min = 99999
+max = 0
+choice='y'
+while choice == 'y' or choice=='Y':
+    num = int(input("Enter a number: "))
+    if(num > max):
+        max = num
+    if(num < min):
+        min = num
+    choice = input("Do you wish to continue(Y/N)?: ")
+
+print("Maximum number:", max, "\nMinimum number:", min)
+
+
+
+#Armstrong number print
+
+print("Enter Range (Interval): ")
+first = int(input())
+last = int(input())
+print("Armstrong no. between "+str(first)+" & "+str(last)+" are:")
+if first>last:
+  temp = first
+  first = last
+  last = temp
+while first<=last:
+  res = 0
+  temp = first
+  noOfDigit = 0
+  while temp>0:
+    temp = int(temp/10)
+    noOfDigit = noOfDigit + 1
+  num = first
+  while num>0:
+    rem = num%10
+    pow = 1
+    i = 0
+    while i<noOfDigit:
+      pow = pow*rem
+      i = i+1
+    res = res+pow
+    num = int(num/10)
+  if res == first:
+    print(res)
+  first = first+1
+
+
+#Fibonacci sequence
+
+b = 1
+c = 0
+print("Enter the Value of n: ", end="")
+n = int(input())
+
+print("\nFirst", n, "Terms of Fibonacci Series are:")
+for i in range(1, n+1):
+    if i == 1:
+        c = 0
+    elif i == 2 or i == 3:
+        c = 1
+    else:
+        a = b
+        b = c
+        c = a+b
+    if i == n:
+        print(c)
+    else:
+        print(c, end=" ")
+
+
+#sum of series(1/1!+2/2!+3/3!+...)
+
+n=int(input("enter range:"))
+def sumOfSeries(num):
+	res = 0
+	fact = 1
+	for i in range(1, num+1):
+		fact *= i
+		res = res + (i/ fact)
+	return res
+print("Sum: ", sumOfSeries(n))
+
+
+#sum series(1-1/2+1/3-1/4+....)
+
+n = int(input("Enter the value of n: "))
+sum = 0
+sign = -1
+for i in range(1,n+1):
+    sign = sign * -1
+    sum = sum + sign * 1/i
+print("Sum of series for first",n,"terms is: ",sum)
+
+
+
+#print pattern
+
+print("first pattern")
+for i in range(4):
+    for j in range(10):
+        print("*",end='')
+    print()
+    
+
+print("second pattern")
+for i in range(1,6):
+    for j in range(1,i+1):
+        print("*",end='')
+    print()
+    
+
+print("third pattern")
+for i in range(1,6):
+    for j in range(5,i,-1):
+        print(" ",end='')
+    for k in range(1,i+1):
+        print("*",end='')
+    print()
+    
+
+print("fourth pattern")
+for i in range(1,6):
+    for j in range(5,i,-1):
+        print(" ",end='')
+    for k in range(1,2*i):
+        print("*",end='')
+    print()
+    
+
+print("fifth pattern")
+for i in range(1,6):
+    for j in range(5,i,-1):
+        print(" ",end='')
+    for k in range(1,2*i):
+        print(i,end='')
+    print()
+    
+
+print("sixth pattern")
+for i in range(1,6):
+    for j in range(5,i,-1):
+        print(" ",end='')
+    for k in range(i,0,-1):
+        print(k,end='')
+    for l in range(2,i+1):
+        print(l,end='')
+    print()
+
+
+
+
+#Floyd's triangle
+
+
+print("Enter the Number of Rows: ", end="")
+row = int(input())
+num = 1
+for i in range(row):
+    for j in range(i+1):
+        print(num, end=" ")
+        num = num+1
+    print()
+
+
+#sin x series
+
+x = int(input("Enter the value of x: "))
+n = int(input("Enter the value of n: "))
+sign = -1
+fact = i =1
+sum = 0
+while i<=n:
+    p = 1
+    fact = 1
+    for j in range(1,i+1):
+        p = p*x
+        fact = fact*j
+    sign = -1*sign
+    sum = sum + sign* p/fact
+    i = i+2
+print("sin(",x,") =",sum)
+
+
+
+#cos x series
+
+x = int(input("Enter the value of x: "))
+n = int(input("Enter the value of n: "))
+sign=-1
+fact=1
+i=2
+sum=0
+while i<=n:
+    p=1
+    fact=1
+    for j in range(1,i+1):
+        p = p*x
+        fact = fact*j
+    sum= sum + sign* p/fact
+    sign = -1*sign
+    i = i+2
+print("cos(",x,") =",1+sum)
+
+
+#guess the number
+
+import random
+computer = random.randint(1,100)
+player = 0
+tries=0
+print("Guess My Number Game")
+while(player != computer):
+    player = int(input('Enter your guess: '))
+    tries = tries + 1
+    if player < computer:
+        print('Too low, try again.')
+    elif player > computer:
+        print('Too high, try again.')
+    else:
+        print("Correct!,you got it in",tries,"tries")
+
+
+
+
+
+
