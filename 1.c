@@ -1,47 +1,59 @@
+//First Come First Serve CPU Scheduling
 #include <stdio.h>
-int main() {
-  int a, s, temp = 0, temp1 = 0;
-  printf("enter the np of symbols in alphabet:");
-  scanf("%d", & a);
-  printf("enter the no of state:");
-  scanf("%d", & s);
-  printf("enter the transision state:");
-  char t[s + 2][a + 2];
 
-for (int i=0; i<s+1; i++) {
-  for (int j=0; j<a+2; j++) {
-    scanf("%c", & t[i][j]);
-    }
-  }
-  for (int i=0; i<s+1; i++) {
-    for (int j=0; j<a+2; j++) {
-      printf("%c", t[i][j]);
-    }
-    printf("\n");
-  }
-  printf("enter the string: ");
-  char string[10];
+int main(int argc, char const *argv[])
+{
+    //Read the total no of processes, and their burst time(taken arrival time of each process=0)
+    int n;
+    printf("Enter the Total no. of process: ");
+    scanf("%d", &n);
 
-  for (int j=0; j<10; j++) {
-    scanf("%c", & string[j]);
-  printf("\n");
-      }
-  for (int k=0; k<10; k++) {
-    for (int i=0; i<s+1; i++) {
-      for (int j=0; j<a+2; j++) {
-            if (string[k] == t[0][j]) {
-              temp1 = temp;
-              temp = t[temp][j];
-              printf("\non state %c applying symbol %c goes to %d: ", temp1, string[k], temp);
-        }
-        }
-      }
+    //Read the arrival time and burst time of all the processes
+    int at[n], bt[n];
+    printf("Enter the Arrival time of all the processes::\n");
+    for(int i=0; i<n; i++){
+        printf("P[%d]: ", i);
+        scanf("%d", &at[i]);
     }
-    
 
-        if (t[temp][a + 1] == 'F') 
-             printf("accepted");
-        else
-             printf("rejected");
-        return 0;
-      }
+    printf("Enter the Burst time of all the processes::\n");
+    for(int i=0; i<n; i++){
+        printf("P%d]: ", i);
+        scanf("%d", &bt[i]);
+    }
+
+    //execution start time of all the processess
+    int st[n];
+    st[0]=0;
+    for(int i=1; i<n; i++){
+        st[i]=st[i-1]+bt[i-1];
+    }
+    //calculation of waiting time
+    int wt[n];
+    wt[0]=0;
+    for(int i=1; i<n; i++){
+        wt[i]=st[i]-at[i];
+    }
+
+    //calculation of turn-around time
+    int tat[n];
+    for(int i=0; i<n; i++){
+        tat[i]=bt[i]+wt[i];
+    }
+
+    //printing all the values
+    printf("\n-----------------------------------------------------------------------------------------------------------------\n");
+    printf("\tProcess\t\tArrival Time\t\tBurst Time\t\tWait time\t\tTurn-Around Time\n\n");
+    for(int i=0; i<n; i++){
+        printf("\t  P%d\t\t    %d\t\t\t  %d\t\t\t  %d\t\t\t   %d\n\n",i+1, at[i], bt[i], wt[i], tat[i]);
+    }
+
+    float twt=0, ttat=0;
+    for(int i=0; i<n; i++){
+        twt+=wt[i];
+        ttat+=tat[i];
+    }
+    printf("\nAverage Waiting time: %f\n", twt/n);
+    printf("\nAverage turn-around time: %f\n\n", ttat/n);
+    return 0;
+}
