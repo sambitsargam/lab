@@ -1,15 +1,12 @@
-mylist = []
-size = int(input('How many elements you want to enter? '))
+text = input('Enter a sentence: ')
 
-print('Enter',str(size),'elements')
+wdict = {}
+words = text.split()
 
-for i in range(size):
-    data = int(input())
-    mylist.append(data)
-
-#reverse the list
-for i in range(size//2):
-    #swapping elements
-    mylist[i],mylist[len(mylist)-1-i] = mylist[len(mylist)-1-i], mylist[i]
-
-print('Reverse list:', mylist)
+for word in words:
+    if word in wdict:
+        wdict[word] += 1
+    else:
+        wdict[word] = 1
+for key in wdict:
+    print(key, wdict[key])
