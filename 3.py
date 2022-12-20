@@ -1,12 +1,11 @@
-text = input('Enter a sentence: ')
+def count_words():
+    file = open("notes.txt","r")
+    count = 0
+    data = file.read()
+    words = data.split()
+    for word in words:
+        count += 1
+    print("Total words are",count)
+    file.close()
 
-wdict = {}
-words = text.split()
-
-for word in words:
-    if word in wdict:
-        wdict[word] += 1
-    else:
-        wdict[word] = 1
-for key in wdict:
-    print(key, wdict[key])
+count_words()
