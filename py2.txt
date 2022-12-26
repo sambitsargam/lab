@@ -1,0 +1,63 @@
+1)
+a = int(input("Enter the number 1:"))
+b = int(input("Enter the number 2:"))
+c = int(input("Enter the number 3:"))
+
+def largest_num(a,b,c):
+    if (a > b) and (a > c):
+        largest = a
+    elif (b > a) and (b > c):
+        largest = b
+    else:
+        largest = c
+    return largest
+
+
+def smallest_num(a,b,c):
+    if (a < b) and (a < c):
+        smallest = a
+    elif (b < a) and (b < c):
+        smallest = b
+    else:
+        smallest = c
+    return smallest
+
+lar =largest_num(a,b,c)
+small =smallest_num(a,b,c)
+
+print(f"Largest number is {lar} and smallest is {small}")
+
+3)
+nm = int(input("Enter the number"))
+last_digit = nm%10
+if last_digit % 3 == 0:
+    print("divisible by 3")
+else:
+    print("not divisible")
+
+7)
+year = int(input("Enter a year: "))
+if (((year %4 == 0) and (year %100 != 0)) or year % 400 == 0):
+    distance = 1825+6
+else:
+    distance = 1825
+print(f"Distance is{distance}")
+
+8)
+n1 = int(input("Enter the num:"))
+n2 = int(input("Enter the num:"))
+if n1%n2 == 0:
+    print("Hiiii")
+else:
+    print("Bye")
+
+9)
+year = int(input("Enter the year of work"))
+salary = int(input("Enter the salary:"))
+if year>5:
+    bonus = (salary*5)/100
+else:
+    print("will Not given")
+print(bonus)
+net_bonus_amt = salary + bonus
+print(f"Net bonus amt is{net_bonus_amt}")

@@ -1,0 +1,349 @@
+#find max
+
+def find_max(x, y, z):
+    if x > y and x > z:
+        return x
+    elif y > z:
+        return y
+    else:
+        return z
+def main():
+    a = int(input('Enter first number: '))
+    b = int(input('Enter second number: '))
+    c = int(input('Enter third number: '))
+    largest = find_max(a, b, c)
+    print('Largest number is', largest)
+main()
+
+
+#print prime no. 
+
+def isPrime(number):
+    for i in range(2,number):
+        if number % i == 0:
+            return False
+        return True
+def main():
+    for n in range(100,501):
+        if isPrime(n):
+            print(n, end=' ')
+main()
+
+
+#count vowels
+
+def is_vowel(letter):
+    if letter in 'aeiouAEIOU':
+        return True
+    else:
+        return False
+
+def main():
+    count = 0
+    string = input('Enter a text: ')
+    for ch in string:
+        if(is_vowel(ch)):
+            count += 1
+
+    print('Number of vowels are', count)
+
+main()
+
+
+#arithmetic operation
+
+def choices():
+    print('\nMenu')
+    print('1. Add')
+    print('2. Subtract')
+    print('3. Multiply')
+    print('4. Divide')
+    print('5. Exit')
+
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    return a / b
+
+def main():
+    while(True):
+        choices()
+        choice = input('Enter choice(1-5): ')
+        if choice == '1':
+            x = int(input('Enter first number: '))
+            y = int(input('Enter second number: '))
+            print('Sum =', add(x, y))
+            
+        elif choice == '2':
+            x = int(input('Enter first number: '))
+            y = int(input('Enter second number: '))
+            print('Difference =', subtract(x, y))
+            
+        elif choice == '3':
+            x = int(input('Enter first number: '))
+            y = int(input('Enter second number: '))
+            print('Product =', multiply(x, y))
+            
+        elif choice == '4':
+            x = int(input('Enter first number: '))
+            y = int(input('Enter second number: '))
+            if y == 0:
+                print('Error!! divide by zero')
+            else:
+                print('Quotient =', divide(x, y))  
+				
+        elif choice == '5':
+            break
+        
+        else:
+            print('Invalid input')
+            
+main()
+
+
+#sum of cube of number
+
+def sum(numbers):
+    total = 0
+    for number in numbers:
+        total += number**3
+    return total
+
+def main():
+    numbers = [3,6,4,8,9]
+    s = sum(numbers)
+    print(s)
+
+main()
+
+
+
+#add numbers ends with 0
+
+def zero_ending(scores):
+    total = 0
+    for number in scores:
+        if number%10 == 0:
+            total += number
+    return total
+
+scores =  [200, 456, 300, 100, 234, 678]
+s = zero_ending(scores)
+print(s)
+
+
+#print place name having more than 5 characters
+
+
+def count_now(places):
+    for place in places:
+        if len(place) > 5:
+            print(place)
+
+places = ["DELHI","LONDON","PARIS","NEW YORK","DUBAI"]
+count_now(places)
+
+
+#print no. 3 times & word with #
+
+lst = eval(input("Enter a list :-"))
+for i in lst :
+    if i.isdigit() :
+        print(i*3)
+    elif i.isalpha() :
+        print(i+"#")
+
+
+#print element position
+
+def binary_search(L, data):
+    first = 0
+    last = len(L)-1
+    while(first<=last):
+        mid = (first+last)//2
+        if L[mid]==data:
+            return mid
+        elif L[mid]>data:
+            first=mid+1
+        else:
+            last=mid-1
+    return -1
+
+
+L = [90,78,25,13,9,2]
+print(L)
+index = binary_search(L,2)
+if index == -1:
+    print('Element not found')
+else:
+    print('Elemenent found at position',index+1)
+
+
+#print factorial
+
+def factorial(n):
+    if(n <= 1):
+        return 1
+    else:
+        return(n*factorial(n-1))
+n = int(input("Enter number: "))
+print("Factorial: ",factorial(n))
+
+
+#return power of a number
+
+def power(base,exp):
+    if(exp==1):
+        return(base)
+    if(exp!=1):
+        return(base*power(base,exp-1))
+base=int(input("Enter base: "))
+exp=int(input("Enter exponential value: "))
+print("Result:",power(base,exp))
+
+
+#sum of digits
+
+l=[]
+def sum_digits(b):
+    if(b==0):
+        return l
+    dig=b%10
+    l.append(dig)
+    sum_digits(b//10)
+n=int(input("Enter a number: "))
+sum_digits(n)
+print("Required sum: ",sum(l))
+
+
+#find gcd
+
+def gcd(a,b):
+    if(b==0):
+        return a
+    else:
+        return gcd(b,a%b)
+a=int(input("Enter first number:"))
+b=int(input("Enter second number:"))
+GCD=gcd(a,b)
+print("GCD is: ")
+print(GCD)
+
+
+#print nth fibonacci no.
+
+def fib_num(n):
+   if n<=0:
+      print("Fibonacci can't be computed")
+   elif n==1:
+      return 0
+   elif n==2:
+      return 1
+   else:
+      return fib_num(n-1)+fib_num(n-2)
+n=int(input("Enter n: "))
+print("{}th Fibonacci number is ".format(n),fib_num(n))
+
+
+#decimal to binary
+
+l=[]
+def convert(b):
+    if(b==0):
+        return l
+    dig=b%2
+    l.append(dig)
+    convert(b//2)
+a=int(input("Enter a decimal number: "))
+convert(a)
+l.reverse()
+print("Binary equivalent:")
+for i in l:
+    print (i,end='')
+
+
+#sum of n natural no.
+
+def rsum(n):
+    if n <= 1:
+        return n
+    else:
+        return n + rsum(n-1)
+
+num = int(input("Enter a number: "))
+ttl=rsum(num)
+print("The sum is",ttl)
+
+
+#search given element
+
+def binarySearch (Arr, L, R, X):
+    if R >= L:
+        mid = L + (R - L)//2
+        if Arr[mid] == X: 
+            return mid 
+        elif Arr[mid] > X: 
+            return binarySearch(Arr, L, mid-1, X) 
+        else: 
+            return binarySearch(Arr, mid+1, R, X) 
+    else:
+        return -1
+
+data = [10,20,30,40,50,60,70,80,90,100]
+key = 90
+index = binarySearch(data,0,len(data)-1,key)
+if(index!=-1):
+  print('Found at position :',index+1)
+else:
+  print('Not found')
+
+
+#change half of list element
+
+
+def half_and_half(my_list):
+    if len(my_list)%2 == 0:
+        start = 0
+    else:
+        start = 1
+        
+    L = len(my_list)//2
+    
+    for i in range(L):
+        temp = my_list[i]
+        my_list[i] = my_list[i+L+start]
+        my_list[i+L+start] = temp
+
+my_list = [10,20,30,40,50,60,70]
+half_and_half(my_list)
+print(my_list)
+
+
+#return new list
+
+def swap_key_value(d):
+    L = list(d.values())
+    for value in L:
+        if L.count(value) > 1:
+            return dict()
+
+    new_dict = {}
+    for k, v in d.items():
+        new_dict[v] = k
+    return new_dict
+d = {'a':10,'b':20,'c':20}
+print(d)
+n = swap_key_value(d)
+print(n)
+d = {'a':10,'b':20,'c':30}
+print(d)
+n = swap_key_value(d)
+print(n)
+

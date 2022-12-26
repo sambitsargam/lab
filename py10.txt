@@ -1,0 +1,94 @@
+#ZeroDivisionError
+
+def divide():
+    try:
+        a=int(input("Enter A: "))
+        b=int(input("Enter B: "))
+        c= a/b
+        print("Result: ",c)
+    except ZeroDivisionError:
+        print("Denominator should not be zero!")
+divide()        
+        
+
+#else with try except
+
+def divide():
+    try:
+        a=int(input("Enter A: "))
+        b=int(input("Enter B: "))
+        c= a/b
+    except ZeroDivisionError:
+        print("Denominator should not be zero!")
+    else:
+        print("Result: ",c)
+divide()        
+        
+
+#finally with else
+
+def divide():
+    try:
+        a=int(input("Enter A: "))
+        b=int(input("Enter B: "))
+        c= a/b
+    except ZeroDivisionError:
+        print("Denominator should not be zero!")
+    else:
+        print("Result: ",c)
+    finally:
+        print("The Program executed successfully!")
+divide()        
+        
+
+#ValueError
+
+def read_age():
+    age = int(input("Enter your age: "))
+    if age < 0 or age >100:
+        raise ValueError("Invalid age")
+    return age
+try:
+    val = read_age()
+    print("Your age is ",val)
+except ValueError as e:
+    print(e)
+
+
+#TypeError & ZeroDivisionError
+
+a=input("enter a: ")
+b=input("enter b: ")
+c=input("enter c: ")
+try:
+    print("Result: ",int(a)/int(b))
+    print(int(a)+c)
+except TypeError:
+    
+    print("You added values of incompatible types")
+except ZeroDivisionError:
+    print("You divided by 0")
+
+
+#NameError
+
+try:
+        a=int(input("Enter A: "))
+        b=int(input("Enter B: "))
+        add
+        print(sum)
+except NameError:
+           print("sum does not exist")        
+
+#IOError
+
+def readFile():
+    try:
+        file = open('test.txt', 'r')
+except EOFError as e:
+    print(e)
+except IOError as e:
+readFile()
+
+
+#

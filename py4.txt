@@ -1,0 +1,209 @@
+#shift left
+
+text = input('Enter a string: ')
+newtext = text[1:] + text[0]
+print('New string:', newtext)
+
+#print initials
+
+text = input('Enter a string: ')
+#index of first space
+space1 = text.find(' ')
+#index of second space
+space2 = text.find(' ',space1+1)
+newtext = text[0] +'. '  + text[space1+1] +'. ' + text[space2+1] +'.'
+print('New string:', newtext)
+
+
+#palindrome check
+
+text = input('Enter a string: ')
+#reverse string
+newtext = text[::-1]
+
+if text == newtext:
+    print('String is palindrome')
+else:
+    print('String is not palindrome')
+
+
+
+#replace 1st and last
+
+text = input('Enter a string: ')
+newtext = text[-1]+text[1:-1]+text[0]
+print('New string:', newtext)
+
+
+#print  odd character 
+
+def modify(string):  
+  final = ""   
+  for i in range(len(string)):  
+    if i % 2 == 0:  
+      final = final + string[i]  
+  return final
+string=input("Enter string:")
+print("Modified string is:")
+print(modify(string))
+
+
+#upper and lower case
+
+user_input = input("What's your favourite language? ")
+print("My favourite language is ", user_input.upper())
+print("My favourite language is ", user_input.lower())
+
+
+#sort color alphanumerically
+
+items = input("Input comma separated sequence of words: ")
+words = [word for word in items.split(",")]
+print(",".join(sorted(list(set(words)))))
+
+
+#html tag
+
+def add_tags(tag, word):
+	return "<%s>%s</%s>" % (tag, word, tag)
+print(add_tags('i', 'Python'))
+print(add_tags('b', 'Python Tutorial'))
+
+
+
+#insert string in middle 
+
+def insert_sting_middle(str, word):
+	return str[:2] + word + str[2:]
+
+print(insert_sting_middle('[[]]', 'Python'))
+print(insert_sting_middle('{{}}', 'PHP'))
+print(insert_sting_middle('<<>>', 'HTML'))
+
+
+
+#print last 2 character 4 times
+
+s1=input("enter:")
+def insert_end(str):
+	sub_str = str[-2:]
+	return sub_str * 4
+print(insert_end(s1))
+
+
+
+#print 1st three characters of string
+
+s1=input("enter a string: ")
+def first_three(str):
+	return str[:3] if len(str) > 3 else str
+print(first_three(s1))
+
+
+
+#check starting 3 character
+
+string = "NIST"
+print(string.startswith("NIS"))
+
+
+#Add prefix to each line
+
+import textwrap
+sample_text ='''
+    Python is a widely used high-level, general-purpose, interpreted,
+    dynamic programming language. Its design philosophy emphasizes
+    code readability, and its syntax allows programmers to express
+    concepts in fewer lines of code than possible in languages such
+    as C++ or Java.
+    '''
+text_without_Indentation = textwrap.dedent(sample_text)
+wrapped = textwrap.fill(text_without_Indentation, width=50)
+final_result = textwrap.indent(wrapped, '> ')
+print()
+print(final_result)
+print()
+
+
+
+#sum & average of digits
+
+def find_avg_sum(str):
+    sum = 0
+    count = 0
+    for ch in str:
+        if ch.isdigit():
+            sum += int(ch)
+            count += 1
+    return sum/count
+
+def sum_d(str1):
+    sum_digit = 0
+    for x in str1:
+        if x.isdigit() == True:
+            z = int(x)
+            sum_digit = sum_digit + z
+
+    return sum_digit
+given_str = input('Enter a string: ')
+print("Sum:",sum_d(given_str))
+print("Average:",find_avg_sum(given_str))
+
+
+#remove all character except digits
+
+s=input("enter a string: ")
+s1="".join(c for c in s if  c.isdecimal())
+print (s1)
+
+#upper case of  half string
+
+test_str =input("enter a string: ")
+print("The original string is : " + str(test_str))
+hlf_idx = len(test_str) // 2
+res = ''
+for idx in range(len(test_str)):
+    if idx < hlf_idx:
+      res += test_str[idx].upper()
+    else :
+      res += test_str[idx]
+print("The resultant string : " + str(res))
+
+
+#shift character left until match
+
+text = 'SHIFT'
+for i in range(0,6):
+    newtext = text[i:] + text[:i]
+    print(newtext)
+
+
+#password validity check
+
+import re
+p= input("Input your password: ")
+x = True
+while x:  
+    if (len(p)<8 or len(p)>12):
+        break
+    elif not re.search("[a-z]",p):
+        break
+    elif not re.search("[0-9]",p):
+        break
+    elif not re.search("[A-Z]",p):
+        break
+    elif not re.search("[$#@]",p):
+        break
+    elif re.search("\s",p):
+        break
+    else:
+        print("Valid Password")
+        x=False
+        break
+
+if x:
+    print("Not a Valid Password")
+
+
+
+

@@ -1,0 +1,220 @@
+#count frequency
+
+text = input('Enter a sentence: ')
+wdict = {}
+words = text.split()
+for word in words:
+    if word in wdict:
+        wdict[word] += 1
+    else:
+        wdict[word] = 1
+for key in wdict:
+    print(key, wdict[key])
+
+
+#unique words
+
+text = input('Enter a sentence: ')
+wdict = {}
+words = text.split()
+for word in words:
+    if word in wdict:
+        wdict[word] += 1
+    else:
+        wdict[word] = 1
+for key in wdict:
+    print(key)
+
+
+
+#phone number details
+
+phonebook = {}
+choice = 1
+
+while choice != 0:
+    print('\nMenu')
+    print('1. Add a record')
+    print('2. Search a record')
+    print('3. Change a record')
+    print('4. Delelte a record')
+    print('5. Quit')
+
+    choice = int(input('Enter your choice: '))
+    
+    if choice == 1:
+        name = input('Enter name: ')
+        phone = int(input('Enter your phone number: '))
+        if name in phonebook:
+            print('Name Already Exists')
+        else:
+            phonebook[name] = phone
+            print('Record added')
+
+    elif choice == 2:
+        name = input('Enter name to search: ')
+        if name in phonebook:
+            print(name,':',phonebook[name])
+        else:
+            print('Record not found')
+
+    elif choice == 3:
+        name = input('Enter name: ')
+        if name in phonebook:
+            phone = int(input('Enter new phone number: '))
+            phonebook[name] = phone
+            print('Record updated')
+        else:
+            print('Record not found')
+
+    elif choice == 4:
+        name = input('Enter name: ')
+        if name in phonebook:
+            del phonebook[name]
+            print('Record deleted')
+        else:
+            print('Record not found')
+    elif choice ==5:
+        break
+
+
+
+
+#print character frequency in dec order
+
+
+def printChar(arr, Len):
+	occ = {}
+	for i in range(Len):
+		if(arr[i] in occ):
+			occ[arr[i]] = occ[arr[i]] + 1
+		else:
+			occ[arr[i]] = 1
+	size = len(occ)
+	while (size > 0):
+		currentMax = 0
+		arg_max = 0
+		for key, value in occ.items():
+
+			if (value > currentMax or (value == currentMax and key > arg_max)):
+				arg_max = key
+				currentMax = value
+		print(f"{arg_max} - {currentMax}")
+		occ.pop(arg_max)
+		size -= 1
+Str = input("Enter Stirng: ")
+Len = len(Str)
+printChar(list(Str), Len)
+
+
+
+# print character frequency
+
+str = input("Enter string: ")
+dict = {}
+for i in str:
+    if i in dict:
+        dict[i] += 1
+    else:
+        dict[i] = 1
+print(dict)
+
+
+#replace vowels
+
+s = input("Enter a string : ")
+d = {"a":"@", "e":"#", "i":"!", "o":"%", "u":"^"} 
+ans = "" 
+print("Original String : ",s)
+for i in s: 
+    if(i in d): 
+        ans += d[i] 
+    else: 
+        ans += i 
+print("New String : "+ans)
+
+
+
+#replace vowels
+
+str2 = input("Enter a string: ")
+rep_lst = ['a']
+rep_lst1 = ['e']
+rep_lst2 = ['i']
+rep_lst3 = ['o']
+rep_lst4 = ['u']
+print("original string: ",str2)
+for i in rep_lst:
+    if i in str2:
+        str2 = str2.replace(i, '#')
+for i in rep_lst1:
+    if i in str2:
+        str2 = str2.replace(i, '@')        
+for i in rep_lst2:
+    if i in str2:
+        str2 = str2.replace(i, '$')
+for i in rep_lst3:
+    if i in str2:
+        str2 = str2.replace(i, '%')    
+for i in rep_lst4:
+    if i in str2:
+        str2 = str2.replace(i, '!')        
+print("Modified string: ",str2)
+
+
+
+#Find common words from two sentences
+ 
+a = input("Enter 1st string: ")
+b = input("Enter 2nd string: ")
+d = {}
+for w1 in a.split():
+    for w2 in b.split():
+        if w1 == w2:
+            d[w1] =  d.get(w1,0) + 1
+print("Common words are: ") 
+for key in d:
+    print(key)
+
+
+#student marks in dec order
+
+D = {}
+n = int(input('Enter no. of students: '))
+ls = []
+for i in range(0, n):
+	x,y = input("Enter the student name and it's marks: ").split()
+	ls.append((y,x))
+ls = sorted(ls, reverse = True)
+print('Sorted list of students according to their marks in descending order')
+for i in ls:
+	print(i[1], i[0])
+
+
+
+
+#remove vowels
+
+input_string = input("enter string: ")
+result = input_string
+vowels = ('a', 'e', 'i', 'o', 'u')
+for x in input_string.lower():
+    if x in vowels:
+        result = result.replace(x, "")
+print('After removing vowels : ', result)
+
+
+
+#student table
+
+dict1 = {}
+dict1 = {1: ["Ram", 1, 90],
+		2: ["Rohan", 2, 100],
+		3: ["Sonu", 3, 85],
+		}
+print("{:<10} {:<10} {:<10}".format('NAME', 'ROLL', 'MARKS'))
+for key, value in dict1.items():
+	name, roll, marks = value
+	print("{:<10} {:<10} {:<10}".format(name, roll, marks))
+
+

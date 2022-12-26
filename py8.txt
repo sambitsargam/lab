@@ -1,0 +1,343 @@
+#display content of file
+
+def read_file():
+    file = open("poem.txt","r")
+    for line in file:
+        print(line, end="")
+    file.close()
+
+read_file()
+
+
+#count lines not start with "t"
+
+def line_count():
+    file = open("story.txt","r")
+    count=0
+    for line in file:
+        if line[0] not in 'T':
+            count+= 1
+    file.close()
+    print("No of lines not starting with 'T'=",count)
+
+line_count()
+
+
+#count and display the no. of words in a file
+
+def count_words():
+    file = open("notes.txt","r")
+    count = 0
+    data = file.read()
+    words = data.split()
+    for word in words:
+        count += 1
+    print("Total words are",count)
+    file.close()
+
+count_words()
+
+
+#count occurence of "the" word
+
+def count_words():
+    file = open("notes.txt","r")
+    count = 0
+    data = file.read()
+    words = data.split()
+    for word in words:
+        if word =="the" or word =="The":
+            count += 1
+    print(count)
+    file.close()
+
+count_words()
+
+
+#count words have less than 4 char
+
+def display_words():
+    file = open("poem.txt","r")
+    data = file.read()
+    words = data.split()
+    for word in words:
+        if len(word) < 4:
+            print(word, end=" ")
+    file.close()
+
+display_words()
+
+
+#count words end wih "e"
+
+def count_words():
+    file = open("article.txt","r")
+    count = 0
+    data = file.read()
+    words = data.split()
+    for word in words:
+        if word[-1] == 'e':
+            count+=1
+    print(count)
+    file.close()
+
+count_words()
+
+
+#count upper case letters
+
+def count_letter():
+    file = open("article.txt","r")
+    data = file.read()
+    count = 0
+    for letter in data:
+        if letter.isupper():
+            count+=1
+    print(count)
+    file.close()
+
+count_letter()
+
+#print each letter ends wih "#"
+
+
+def count_hash():
+    file = open("matter.txt","r")
+    data = file.read()
+    for letter in data:
+        print(letter, end="#")
+
+    file.close()
+
+count_hash()
+
+#replace "j" with "i"
+
+def JTOI():
+    file = open("words.txt","r")
+    data = file.read()
+    for letter in data:
+        if letter == 'J':
+            print("I",end="")
+        else:
+            print(letter,end="")
+
+    file.close()
+
+JTOI()
+
+
+#count "a" amdd "m" in the string
+
+def AMcount():
+    file = open('notes.txt','r')
+    data = file.read()
+    counta=0
+    countm=0
+    for letter in data:
+        if letter == 'A' or letter =='a':
+            counta += 1
+        elif letter == 'M' or letter =='m':
+            countm += 1
+
+    file.close()
+    print('A or a:',counta)
+    print('M or m:',countm)
+
+AMcount()
+
+
+#print book details
+
+import pickle
+
+def createFile():
+    file = open("book.dat","ab")
+    BookNo = int(input("Enter book number: "))
+    Book_Name = input("Enter book Name: ")
+    Author =input("Enter author: ")
+    Price = int(input("Enter price: "))
+    record = [BookNo, Book_Name, Author, Price]
+    pickle.dump(record, file)
+    file.close()
+    
+def countRec(Author):
+    file = open("book.dat","rb")
+    count = 0
+    try:
+        while True:
+            record = pickle.load(file)
+            if record[2]==Author:
+                count+=1
+    except EOFError:
+        pass
+    return count
+    file.close()
+
+def testProgram():
+    while True:
+        createFile()
+        choice = input("Add more record (y/n)? ")
+        if choice in 'Nn':
+            break
+    Author = input('Enter author name to search: ')
+    n = countRec(Author)
+    print("No of books are",n)
+
+testProgram()
+
+
+#display student name have score > 75%
+
+
+def count_rec():
+    file = open("STUDENT.DAT","rb")
+    count = 0
+    try:
+        while True:
+            record = pickle.load(file)
+            if record[2] > 75:
+                print(record)
+                count+=1
+    except EOFError:
+        pass
+    print('No of students having more than 75% are', count)
+    file.close()
+
+#print employ salary > 30000
+
+
+import pickle
+
+def add_record():
+    file = open("employee.dat","ab")
+    emp = {}
+    emp['empcode'] = int(input("Enter employee code: "))
+    emp['name'] = input("Enter employee Name: ")
+    emp['salary'] = int(input("Enter salary: "))
+    pickle.dump(emp, file)
+    file.close()
+    
+def search():
+    file = open("employee.dat","rb")
+    try:
+        while True:
+            emp = pickle.load(file)
+            if emp['salary']>30000:
+                print(emp)
+    except EOFError:
+        pass
+    file.close()
+
+def testProgram():
+    while True:
+        add_record()
+        choice = input("Add more record (y/n)? ")
+        if choice in 'Nn':
+            break
+    print('Employee details having salary more than 30000')
+    search()
+
+testProgram()
+
+
+#display student roll "1005"
+
+def search():
+    file = open("student.dat","rb")
+    try:
+        while True:
+            record = pickle.load(file)
+            if record[0] == 1005:
+                print(record)
+    except EOFError:
+        pass
+    file.close()
+
+#school fees details
+
+def total_fees():
+    file = open("school.dat","rb")
+    try:
+        total = 0
+        while True:
+            record = pickle.load(file)
+            total += record[3]:
+    except EOFError:
+        pass
+    print('Total Fees: ',total)
+    file.close()
+
+
+#display player data
+
+import pickle
+
+def createFile():
+    file = open("players.dat","ab")
+    Code = int(input("Enter player code: "))
+    Name = input("Enter player Name: ")
+    Country =input("Enter player country: ")
+    Total_Runs = int(input("Enter total runs of player: "))
+    record = [Code, Name, Country, Total_Runs]
+    pickle.dump(record, file)
+    file.close()
+
+def search():
+    file = open("players.dat","rb")
+    try:
+        while True:
+            record = pickle.load(file)
+            if record[1][0] == 'A':
+                print(record)
+    except EOFError:
+        pass
+    file.close()
+
+def countRec(Country):
+    file = open("players.dat","rb")
+    count = 0
+    try:
+        while True:
+            record = pickle.load(file)
+            if record[2]==Country:
+                count+=1
+    except EOFError:
+        pass
+    return count
+    file.close()
+
+def testProgram():
+    while True:
+        createFile()
+        choice = input("Add more record (y/n)? ")
+        if choice in 'Nn':
+            break
+    print("the number of players whose name starts with A:",search())
+    Country = input('Enter country name to search: ')
+    n = countRec(Country)
+    print("No of players are",n)
+
+testProgram()
+
+
+#display game data
+
+
+def countRec(country):
+    infile = open("game.dat","rb")
+    outfile = open("basket.dat","wb")
+
+    try:
+        while True:
+            record = pickle.load(infile)
+            if record[0] == "Basket Ball":
+                pickle.dump(record, outfile)
+    except EOFError:
+        pass
+    infile.close()
+    outfile.close()
+
+
+
+

@@ -1,0 +1,234 @@
+#reverse list
+
+mylist=[]
+size=int(input("enter size: "))
+print("Enter "+str(size)+" Elements")
+for i in range(size):
+    data=int(input())
+    mylist.append(data)
+for i in range(size//2):
+    mylist[i],mylist[len(mylist)-1-i]=mylist[len(mylist)-1-i],mylist[i]
+print('Reverse list: ',mylist)       
+
+
+
+#max element
+
+mylist=[]
+size=int(input("Enter no of elements: "))
+print("Enter "+str(size)+" numbers: ")
+for i in range(size):
+    data=int(input())
+    mylist.append(data)
+max=0
+for data in mylist:
+    if data>max:
+        max=data
+print("Max element: ",max)        
+
+
+#display odd ele by mul 3
+
+number=[]
+size=int(input("Enter no of elements: "))
+print("Enter "+str(size)+" numbers: ")
+for i in range(size):
+    data=int(input())
+    number.append(data)
+print("Original list: ",number)
+for i in range(size):
+    if number[i]%2 == 0:
+        number[i] = number[i] / 2
+    else:
+        number[i] =  number[i] * 3
+print("Required list: ",number)        
+
+
+
+#rotate list
+
+l=input('Enter a List: ').split()
+l=l[len(l)-1:] + l[:-1]
+print('Rotated List: ',l)
+
+
+#rotate list(using list)
+
+mylist = []
+size = int(input('How many elements you want to enter? '))
+print('Enter',str(size),'elements')
+for i in range(size):
+    data = input()
+    mylist.append(data)
+print('list before shifting', mylist)
+temp = mylist[size-1]
+for i in range(size-1,0,-1):
+    mylist[i] = mylist[i-1]
+mylist[0] = temp
+print('list after shifting', mylist)
+
+
+
+#delete word
+
+text = input('Enter a string: ')
+words = text.split()
+data = input('Enter a word to delete: ')
+status = False
+for word in words:
+    if word == data:
+        words.remove(word)
+        status = True
+if status:
+    text = ' '.join(words)
+    print('String after deletion:',text)
+else:
+    print('Word not present in string.')
+
+
+
+#month date year
+
+mydate = input('Enter a date(mm/dd/yyyy): ')
+datelist = mydate.split('/')
+month = int(datelist[0])
+day = int(datelist[1])
+year = int(datelist[2])
+if month == 1:
+    month = 'January'
+elif month == 2:
+    month = 'February'
+elif month == 3:
+    month = 'March'
+elif month == 4:
+    month = 'April'
+elif month == 5:
+    month = 'May'
+elif month == 6:
+    month = 'June'
+elif month == 7:
+    month = 'July'
+elif month == 8:
+    month = 'August'
+elif month == 9:
+    month = 'September'
+elif month == 2:
+    month = 'October'
+elif month == 2:
+    month = 'November'
+elif month == 12:
+    month = 'December'
+newdate = month + ' ' + str(day) + ',' + str(year) 
+print(newdate)
+
+
+#sum of rows in matrix
+
+
+n = int(input("Enter the number of rows:")) 
+m = int(input("Enter the number of columns:")) 
+matrix = [] 
+print("Enter values in matrix :") 
+for i in range(n):
+    data =[] 
+    for j in range(m):
+         data.append(int(input())) 
+    matrix.append(data) 
+for i in range(n): 
+    for j in range(m): 
+        print(matrix[i][j], end = " ") 
+    print()
+for i in range(n):
+    sum = 0
+    for j in range(m): 
+        sum = sum + matrix[i][j]
+    print('Sum of row',i+1,':',sum) 
+
+
+#capital starting word(with fuction)
+
+print(end="Enter the String: ")
+text = str(input())
+textLen = len(text)
+textList = list(text)
+for i in range(textLen):
+    ch = textList[i]
+    if i==0:
+        ascVal = ord(ch)
+        if ascVal>=97 and ascVal<=122:
+            index = 0
+            textList[index] = ch.upper()
+            text = "".join(textList)
+    if ch==" ":
+        ch = textList[i+1]
+        ascVal = ord(ch)
+        if ascVal>=97 and ascVal<=122:
+            index = i+1
+            textList[index] = ch.upper()
+            text = "".join(textList)
+print("\nThe New String is: " + text)
+
+
+#matrix addition 
+
+rows = int(input("Enter the Number of rows : " ))
+column = int(input("Enter the Number of Columns: "))
+print("Enter the elements of First Matrix:")
+matrix_a= [[int(input()) for i in range(column)] for i in range(rows)]
+print("First Matrix is: ")
+for n in matrix_a:
+    print(n)
+print("Enter the elements of Second Matrix:")
+matrix_b= [[int(input()) for i in range(column)] for i in range(rows)]
+for n in matrix_b:
+    print(n)
+result=[[0 for i in range(column)] for i in range(rows)]
+for i in range(rows):
+    for j in range(column):
+        result[i][j] = matrix_a[i][j]+matrix_b[i][j]
+print("The Sum of Above two Matrices is : ")
+for r in result:
+    print(r)
+
+
+#matrix multiplication
+
+print("Enter the Row and Column Size of First Matrix: ", end="")
+r1 = int(input())
+c1 = int(input())
+print("Enter " +str(r1 * c1)+ " Elements: ", end="")
+m1 = []
+for i in range(r1):
+    m1.append([])
+    for j in range(c1):
+        num = int(input())
+        m1[i].append(num)
+print("\nEnter Row and Column Size of Second Matrix: ", end="")
+r2 = int(input())
+if c1 != r2:
+    print("\nMultiplication Not Possible!")
+    exit()
+else:
+    c2 = int(input())
+    print("Enter " +str(r2 * c2)+ " Elements: ", end="")
+    m2 = []
+    for i in range(r2):
+        m2.append([])
+        for j in range(c2):
+            num = int(input())
+            m2[i].append(num)
+    m3 = []
+    for i in range(r1):
+        m3.append([])
+        for j in range(c2):
+            sum = 0
+            for k in range(c1):
+                sum = sum + (m1[i][k] * m2[k][j])
+            m3[i].append(sum)
+    print("\nMultiplication Result of Two Given Matrix is:")
+    for i in range(r1):
+        for j in range(c2):
+            print(m3[i][j], end=" ")
+        print()
+
+

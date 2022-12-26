@@ -1,0 +1,1173 @@
+============================Filehandling=========================
+#Write a function in python to read the content from a text file "poem.txt" line by line and display the same on screen.
+def read_file():
+    file = open("poem.txt","r")
+    for line in file:
+        print(line, end="")
+    file.close()
+
+read_file()
+#2. Write a function in python to count the number of lines from a text file "story.txt" which is not starting with an alphabet "T". 
+
+Example: If the file "story.txt" contains the following lines: A boy is playing there.
+There is a playground.
+An aeroplane is in the sky.
+The sky is pink.
+Alphabets and numbers are allowed in the password.
+#The function should display the output as 3 Solution
+def line_count():
+    file = open("story.txt","r")
+    count=0
+    for line in file:
+        if line[0] not in 'T':
+            count+= 1
+    file.close()
+    print("No of lines not starting with 'T'=",count)
+
+line_count()
+
+
+3. Write a function in Python to count and display the total number of words in a text file. 
+def count_words():
+    file = open("notes.txt","r")
+    count = 0
+    data = file.read()
+    words = data.split()
+    for word in words:
+        count += 1
+    print("Total words are",count)
+    file.close()
+
+count_words()
+
+
+4. Write a function in Python to read lines from a text file "notes.txt". Your function should find and display the occurrence of the word "the".
+
+For example: If the content of the file is:
+"India is the fastest-growing economy. India is looking for more investments around the globe. The whole world is looking at India as a great market. Most of the Indians can foresee the heights that India is capable of reaching."
+
+The output should be 5.
+def count_words():
+    file = open("notes.txt","r")
+    count = 0
+    data = file.read()
+    words = data.split()
+    for word in words:
+        if word =="the" or word =="The":
+            count += 1
+    print(count)
+    file.close()
+
+count_words()
+
+
+
+5. Write a function display_words() in python to read lines from a text file "story.txt", and display those words, which are less than 4 characters. Solution
+
+def display_words():
+    file = open("poem.txt","r")
+    data = file.read()
+    words = data.split()
+    for word in words:
+        if len(word) < 4:
+            print(word, end=" ")
+    file.close()
+
+display_words()
+6. Write a function in Python to count the words "this" and "these" present in a text file "article.txt". [Note that the words "this" and "these" are complete words] Solution
+def count_words():
+    file = open("article.txt","r")
+    count = 0
+    data = file.read()
+    words = data.split()
+    for word in words:
+        if word == 'this' or word =='these':
+            count+=1
+    print(count)
+    file.close()
+
+count_words()
+7. Write a function in Python to count words in a text file those are ending with alphabet "e". Solution
+def count_words():
+    file = open("article.txt","r")
+    count = 0
+    data = file.read()
+    words = data.split()
+    for word in words:
+        if word[-1] == 'e':
+            count+=1
+    print(count)
+    file.close()
+
+count_words()
+
+8. Write a function in Python to count uppercase character in a text file. Solution
+def count_letter():
+    file = open("article.txt","r")
+    data = file.read()
+    count = 0
+    for letter in data:
+        if letter.isupper():
+            count+=1
+    print(count)
+    file.close()
+
+count_letter()
+
+9. A text file named "matter.txt" contains some text, which needs to be displayed such that every next character is separated by a symbol "#". Write a function definition for hash_display() in Python that would display the entire content of the file matter.txt in the desired format.
+
+Example :
+If the file matter.txt has the following content stored in it :
+THE WORLD IS ROUND
+
+The function hash_display() should display the following content :
+T#H#E# #W#O#R#L#D# #I#S# #R#O#U#N#D# Solution
+def count_hash():
+    file = open("matter.txt","r")
+    data = file.read()
+    for letter in data:
+        print(letter, end="#")
+
+    file.close()
+
+count_hash()
+
+10. Aditi has used a text editing software to type some text. After saving the article as WORDS.TXT, she realised that she has wrongly typed alphabet J in place of alphabet I everywhere in the article.
+
+Write a function definition for JTOI() in Python that would display the corrected version of entire content of the file WORDS.TXT with all the alphabets "J" to be displayed as an alphabet "I" on screen.
+
+Note: Assuming that WORD.TXT does not contain any J alphabet otherwise.
+
+Example:
+If Aditi has stored the following content in the file WORDS.TXT:
+WELL, THJS JS A WORD BY JTSELF. YOU COULD STRETCH THJS TO BE A SENTENCE
+The function JTOI() should display the following content:
+WELL, THIS IS A WORD BY ITSELF. YOU COULD STRETCH THIS TO BE A SENTENCE Solution
+def JTOI():
+    file = open("words.txt","r")
+    data = file.read()
+    for letter in data:
+        if letter == 'J':
+            print("I",end="")
+        else:
+            print(letter,end="")
+
+    file.close()
+
+JTOI()
+
+
+11. Write a function AMCount() in Python, which should read each character of a text file STORY.TXT, should count and display the occurance of alphabets A and M (including small cases a and m too).
+For Example:
+If the file content is as follows:
+Updated information
+As simplified by official websites.
+The EUCount() function should display the output as:
+A or a:4
+M or m :2Solution
+def AMcount():
+    file = open('notes.txt','r')
+    data = file.read()
+    counta=0
+    countm=0
+    for letter in data:
+        if letter == 'A' or letter =='a':
+            counta += 1
+        elif letter == 'M' or letter =='m':
+            countm += 1
+
+    file.close()
+    print('A or a:',counta)
+    print('M or m:',countm)
+
+AMcount()
+
+12. A binary file "Book.dat" has structure [BookNo, Book_Name, Author, Price].
+i. Write a user defined function createFile() to input data for a record and add to Book.dat.
+ii. Write a function countRec(Author) in Python which accepts the Author name as parameter and count and return number of books by the given Author are stored in the binary file "Book.dat" Solution
+import pickle
+
+def createFile():
+    file = open("book.dat","ab")
+    BookNo = int(input("Enter book number: "))
+    Book_Name = input("Enter book Name: ")
+    Author =input("Enter author: ")
+    Price = int(input("Enter price: "))
+    record = [BookNo, Book_Name, Author, Price]
+    pickle.dump(record, file)
+    file.close()
+    
+def countRec(Author):
+    file = open("book.dat","rb")
+    count = 0
+    try:
+        while True:
+            record = pickle.load(file)
+            if record[2]==Author:
+                count+=1
+    except EOFError:
+        pass
+    return count
+    file.close()
+
+#To test working of functions
+def testProgram():
+    while True:
+        createFile()
+        choice = input("Add more record (y/n)? ")
+        if choice in 'Nn':
+            break
+    Author = input('Enter author name to search: ')
+    n = countRec(Author)
+    print("No of books are",n)
+
+testProgram()    
+    
+
+
+13. A binary file "STUDENT.DAT" has structure (admission_number, Name, Percentage). Write a function count_rec() in Python that would read contents of the file "STUDENT.DAT" and display the details of those students whose percentage is above 75. Also display number of students scoring above 75% Solution
+def count_rec():
+    file = open("STUDENT.DAT","rb")
+    count = 0
+    try:
+        while True:
+            record = pickle.load(file)
+            if record[2] > 75:
+                print(record)
+                count+=1
+    except EOFError:
+        pass
+    print('No of students having more than 75% are', count)
+    file.close()
+14. Given a binary file employee.dat, created using dictionary object having keys: (empcode, name, and salary)
+
+Write a python function that add one more record at the end of file.
+Write a python function that display all employee records whose salary is more that 30000
+Solution
+import pickle
+
+def add_record():
+    file = open("employee.dat","ab")
+    emp = {}
+    emp['empcode'] = int(input("Enter employee code: "))
+    emp['name'] = input("Enter employee Name: ")
+    emp['salary'] = int(input("Enter salary: "))
+    pickle.dump(emp, file)
+    file.close()
+    
+def search():
+    file = open("employee.dat","rb")
+    try:
+        while True:
+            emp = pickle.load(file)
+            if emp['salary']>30000:
+                print(emp)
+    except EOFError:
+        pass
+    file.close()
+
+#To test working of functions
+def testProgram():
+    while True:
+        add_record()
+        choice = input("Add more record (y/n)? ")
+        if choice in 'Nn':
+            break
+    print('Employee details having salary more than 30000')
+    search()
+
+testProgram()    
+    
+
+15. Write a function to search and display details of student whose rollno is '1005' from the binary file student.dat having structure [rollno, name, class and fees]. Solution
+def search():
+    file = open("student.dat","rb")
+    try:
+        while True:
+            record = pickle.load(file)
+            if record[0] == 1005:
+                print(record)
+    except EOFError:
+        pass
+    file.close()
+
+16. A binary file school.dat has structure(rollno, name, class, fees)
+
+Write a definition for function total_fees( ) that reads each object of file and calculate the total fees of students and display the same. Solution
+def total_fees():
+    file = open("school.dat","rb")
+    try:
+        total = 0
+        while True:
+            record = pickle.load(file)
+            total += record[3]:
+    except EOFError:
+        pass
+    print('Total Fees: ',total)
+    file.close()
+17. A binary file players.dat, containing records of following list format: [code, name, country and total runs]
+
+Write a python function that display all records where player name starts from 'A'
+Write a python function that accept country as an argument and count and display the number of players of that country.
+Write a python function that add one record at the end of file.
+import pickle
+
+def createFile():
+    file = open("players.dat","ab")
+    Code = int(input("Enter player code: "))
+    Name = input("Enter player Name: ")
+    Country =input("Enter player country: ")
+    Total_Runs = int(input("Enter total runs of player: "))
+    record = [Code, Name, Country, Total_Runs]
+    pickle.dump(record, file)
+    file.close()
+
+def search():
+    file = open("players.dat","rb")
+    try:
+        while True:
+            record = pickle.load(file)
+            if record[1][0] == 'A':
+                print(record)
+    except EOFError:
+        pass
+    file.close()
+
+def countRec(Country):
+    file = open("players.dat","rb")
+    count = 0
+    try:
+        while True:
+            record = pickle.load(file)
+            if record[2]==Country:
+                count+=1
+    except EOFError:
+        pass
+    return count
+    file.close()
+
+def testProgram():
+    while True:
+        createFile()
+        choice = input("Add more record (y/n)? ")
+        if choice in 'Nn':
+            break
+    print("the number of players whose name starts with A:",search())
+    Country = input('Enter country name to search: ')
+    n = countRec(Country)
+    print("No of players are",n)
+
+testProgram()
+
+#18. Given a binary file game.dat, containing records of following list format: [game_name, participants]
+
+#Write a function in Python that would read contents from the file game.dat and creates a file named basket.dat copying only those records from game.dat where the game name is "Basket Ball" Solution
+def countRec(country):
+    infile = open("game.dat","rb")
+    outfile = open("basket.dat","wb")
+
+    try:
+        while True:
+            record = pickle.load(infile)
+            if record[0] == "Basket Ball":
+                pickle.dump(record, outfile)
+    except EOFError:
+        pass
+    infile.close()
+    outfile.close()
+============================Function==================================
+1. Write a function find_max that accepts three numbers as arguments and returns the largest number among three. Write another function main, in main() function accept three numbers from user and call find_max. Solution
+def find_max(x, y, z):
+    if x > y and x > z:
+        return x
+    elif y > z:
+        return y
+    else:
+        return z
+
+def main():
+    a = int(input('Enter first number '))
+    b = int(input('Enter second number '))
+    c = int(input('Enter third number '))
+    largest = find_max(a, b, c)
+    print('Largest number is', largest)
+
+main()
+2. Write a function, is_vowel that returns the value true if a given character is a vowel, and otherwise returns false. Write another function main, in main() function accept a string from user and count number of vowels in that string. Solution
+def is_vowel(letter):
+    if letter in 'aeiouAEIOU':
+        return True
+    else:
+        return False
+
+def main():
+    count = 0
+    string = input('Enter a text: ')
+    for ch in string:
+        if(is_vowel(ch)):
+            count += 1
+
+    print('Number of vowels are', count)
+
+main()
+3. Write a function named is_prime, which takes an integer as an argument and returns true if the argument is a prime number, or false otherwise. Also, write the main function that displays prime numbers between 1 to 500. Solution
+def is_prime(number):
+    for i in range(2,number):
+        if number%i == 0:
+            return False
+    return True
+
+def main():
+    for num in range(2,501):
+        if is_prime(num):
+            print(num, end=" ")
+
+main()
+4. Write a function in python to find the sum of the cube of elements in a list. The list is received as an argument to the function, in turn, the function must return the sum. Write the main function which invokes the above function. Solution
+def sum(numbers):
+    total = 0
+    for number in numbers:
+        total += number**3
+    return total
+
+def main():
+    numbers = [3,6,4,8,9]
+    s = sum(numbers)
+    print(s)
+
+main()
+5. Write the definition of a function zero_ending(scores) to add all those values in the list of scores, which are ending with zero and display the sum.
+
+For example: If the scores contain [200, 456, 300, 100, 234, 678] The sum should be displayed as 600. Solution
+def zero_ending(scores):
+    total = 0
+    for number in scores:
+        if number%10 == 0:
+            total += number
+    return total
+
+scores =  [200, 456, 300, 100, 234, 678]
+s = zero_ending(scores)
+print(s)
+6. Write a definition of a method count_now(places) to find and display those place names, in which there are more than 5 characters.
+
+For example :
+If the list places contains
+["DELHI","LONDON","PARIS","NEW YORK","DUBAI"]
+The following should get displayed :
+LONDON
+NEW YORK Solution
+def count_now(places):
+    for place in places:
+        if len(place) > 5:
+            print(place)
+
+places = ["DELHI","LONDON","PARIS","NEW YORK","DUBAI"]
+count_now(places)
+
+7. Write a method in python to display the elements of list thrice if it is a number and display the element terminated with ‘#’ if it is not a number.
+
+For example, if the content of list is as follows :
+ThisList=[‘41’,‘DROND’,‘GIRIRAJ’, ‘13’,‘ZARA’]
+The output should be
+414141
+DROND#
+GIRIRAJ#
+131313
+ZARA# Solution
+def fun(mylist):
+    for value in mylist:
+        if value.isdigit():
+            print(value*3)
+        else:
+            print(value+'#')
+
+mylist = ['41','DROND','GIRIRAJ', '13','ZARA']
+fun(mylist)
+8. For a given list of values in descending order, write a method in python to search for a value with the help of Binary Search method. The method should return position of the value and should return -1 if the value not present in the list. Solution
+def binary_search(L, data):
+    first = 0
+    last = len(L)-1
+    while(first<=last):
+        mid = (first+last)//2
+        if L[mid]==data:
+            return mid
+        elif L[mid]>data:
+            first=mid+1
+        else:
+            last=mid-1
+    return -1
+
+
+L = [90,78,25,13,9,2]
+print(L)
+index = binary_search(L,2)
+if index == -1:
+    print('Element not found')
+else:
+    print('Elemenent found at position',index+1)
+9. Write a function half_and_half that takes in a list and change the list such that the elements of the second half are now in the first half.
+
+For example, if the size of list is even and content of list is as follows :
+my_liist = [10,20,30,40,50,60]
+The output should be
+[40,50,60,10,20,30]
+if the size of list is odd and content of list is as follows :
+my_liist = [10,20,30,40,50,60,70]
+The output should be
+[50,60,70,40,10,20,30] Solution
+def half_and_half(my_list):
+    if len(my_list)%2 == 0:
+        start = 0
+    else:
+        start = 1
+        
+    L = len(my_list)//2
+    
+    for i in range(L):
+        temp = my_list[i]
+        my_list[i] = my_list[i+L+start]
+        my_list[i+L+start] = temp
+
+my_list = [10,20,30,40,50,60,70]
+half_and_half(my_list)
+print(my_list)
+10. Write a function that accepts a dictionary as an argument. If the dictionary contains replicate values, return an empty dictionary, otherwise, return a new dictionary whose values are now the keys and whose keys are the values. Solution
+def swap_key_value(d):
+    L = list(d.values())
+    for value in L:
+        if L.count(value) > 1:
+            return dict()
+
+    new_dict = {}
+    for k, v in d.items():
+        new_dict[v] = k
+    return new_dict
+
+
+d = {'a':10,'b':20,'c':20}
+print(d)
+n = swap_key_value(d)
+print(n)
+
+d = {'a':10,'b':20,'c':30}
+print(d)
+n = swap_key_value(d)
+print(n)
+
+================Dictionary==================
+
+1. Write a program that reads a string from keyboard and prints the unique words. Your program should convert input string to lower case. Solution
+text = input('Enter a string: ').lower()
+words = text.split()
+        
+d = {}
+for word in words:
+    if not word in d:
+        d[word]=0
+        print(word, end=" ")
+2. Write a program to print all elements in a list those have only single occurrence.
+Example: if contents of list is [7, 5, 5, 1, 6, 7, 8, 7, 6].
+Your output should be:
+1 8
+t = [7, 5, 5, 1, 6, 7, 8, 7, 6]
+
+d={}
+        
+for value in t:
+    if not value in d:
+        d[value]=1
+    else:
+        d[value]+=1
+        
+for k in d:
+    if d[k] == 1:
+        print(k, end=" ")
+
+3. Write a program to enter names of employees and their salaries as input and store them in a dictionary. Solution
+d ={}
+while True:
+    name = input('Enter name of Employee ')
+    salary = int(input('Enter salary '))
+    d[name]=salary
+    ans = input('Wants to Enter more record y/n? ')
+    if ans.lower()=='n':
+        break
+        
+print(d)
+4. Write a program to read 6 numbers and create a dictionary having keys EVEN and ODD. Dictionary's value should be stored in list. Your dictionary should be like:
+{'EVEN':[8,10,64], 'ODD':[1,5,9]}
+even=[]
+odd=[]
+for i in range(6):
+    n = int(input('Enter any number: '))
+    if n%2 == 0:
+        even.append(n)
+    else:
+        odd.append(n)
+        
+d = {}
+d['Even']=even
+d['Odd']=odd
+print(d)
+        
+
+5. Write a program that reads string from user. Your program should create a dictionary having key as word length and value is count of words of that length. For example, if user enters 'A fat cat is on the mat'.
+
+Word	Word length
+A	1
+fat	3
+cat	3
+is	2
+on	2
+the	3
+mat	3
+The content of dictionary should be {1:1, 3:4, 2:2}
+text = input('Enter a sentence: ')
+words = text.split()
+d = {}
+for word in words:
+  if len(word) in d:
+      d[len(word)] += 1
+  else:
+      d[len(word)]=1
+        
+print(d)
+
+6. Write a program to input roll numbers and their names of students of your class and store them in the dictionary as the key-value pair. Perform the following operations on the dictionary:
+a) Display the Roll numbers and name for all students.
+b) Add a new key-value pair in this dictionary and display the modified dictionary
+c) Delete a particular student's record from the dictionary
+d) Modify the name of an existing students.
+student = {}
+
+print('Enter student details') 
+while True:
+    roll_number = int(input('Enter your 6 digit roll number: '))
+    if roll_number in student:
+        print('Roll Number Already Exists')
+    else:
+        name = input('Enter name: ')
+        student[roll_number] = name
+        print('Record added')
+    ans = input('Do you want to continue(y/n)? ')
+    if ans in 'nN':
+        break
+
+#######################################################
+# a) Display the Roll numbers and name for all students
+#######################################################
+
+print('\nRoll Number','Name')
+for roll_number in student:
+    print(roll_number,'\t\t',student[roll_number])
+
+#############################################################
+# b) Add a new key-value pair in this dictionary and display 
+#############################################################
+
+print('\nEnter a new record ')
+roll_number = int(input('Enter your 6 digit roll number: '))
+if roll_number in student:
+    print('Roll Number Already Exists')
+else:
+    name = input('Enter name: ')
+    student[roll_number] = name
+    print('Record added\n')
+
+for roll_number in student:
+    print(roll_number,'\t',student[roll_number])
+    
+#############################################################
+# c) Delete a particular student's record from the dictionary
+#############################################################
+
+print('\nDelete a record ')
+roll_number = int(input('Enter roll number: '))
+if roll_number in student:
+    del student[roll_number]
+    print('Record deleted')
+else:
+    print('Record not found')
+
+#############################################
+# d) Modify the name of an existing students.
+#############################################
+
+print('\nModify a record')
+roll_number = int(input('Enter new 6 digit roll number: '))
+
+if roll_number in student:
+    name=input('Modify name ')
+    student[roll_number] = name
+    print('Record updated')
+else:
+    print('Record not found')
+
+=================List=========================
+1. Write a program that accepts a list from user and print the alternate element of list. Solution
+mylist = []
+size = int(input('How many elements you want to enter? '))
+
+print('Enter',str(size),'elements')
+
+for i in range(size):
+    data = int(input())
+    mylist.append(data)
+
+print('Alternate elements are:')
+
+for i in range(0,size,2):
+    print(mylist[i])
+2. Write a program that accepts a list from user. Your program should reverse the content of list and display it. Do not use reverse() method. Solution
+mylist = []
+size = int(input('How many elements you want to enter? '))
+
+print('Enter',str(size),'elements')
+
+for i in range(size):
+    data = int(input())
+    mylist.append(data)
+
+#reverse the list
+for i in range(size//2):
+    #swapping elements
+    mylist[i],mylist[len(mylist)-1-i] = mylist[len(mylist)-1-i], mylist[i]
+
+print('Reverse list:', mylist)
+3. Find and display the largest number of a list without using built-in function max(). Your program should ask the user to input values in list from keyboard. Solution
+mylist = []
+size = int(input('How many elements you want to enter? '))
+
+print('Enter',str(size),'positive numbers')
+
+for i in range(size):
+    data = int(input())
+    mylist.append(data)
+
+max = 0
+for data in mylist:
+    if data > max:
+        max = data
+
+print('The largest number in list is', max)
+
+4. Write a program that rotates the element of a list so that the element at the first index moves to the second index, the element in the second index moves to the third index, etc., and the element in the last index moves to the first index. Solution
+mylist = []
+size = int(input('How many elements you want to enter? '))
+
+print('Enter',str(size),'elements')
+
+for i in range(size):
+    data = input()
+    mylist.append(data)
+    
+print('list before shifting', mylist)
+
+temp = mylist[size-1]
+
+for i in range(size-1,0,-1):
+    mylist[i] = mylist[i-1]
+
+mylist[0] = temp
+
+print('list after shifting', mylist)
+5. Write a program that input a string and ask user to delete a given word from a string. Solution
+text = input('Enter a string: ')
+words = text.split()
+
+data = input('Enter a word to delete: ')
+status = False
+
+for word in words:
+    if word == data:
+        words.remove(word)
+        status = True
+
+if status:
+    text = ' '.join(words)
+    print('String after deletion:',text)
+else:
+    print('Word not present in string.')
+6. Write a program that reads a string from the user containing a date in the form mm/dd/yyyy. It should print the date in the form March 12, 2021. Solution
+mydate = input('Enter a date(mm/dd/yyyy): ')
+datelist = mydate.split('/')
+
+month = int(datelist[0])
+day = int(datelist[1])
+year = int(datelist[2])
+
+if month == 1:
+    month = 'January'
+elif month == 2:
+    month = 'February'
+elif month == 3:
+    month = 'March'
+elif month == 4:
+    month = 'April'
+elif month == 5:
+    month = 'May'
+elif month == 6:
+    month = 'June'
+elif month == 7:
+    month = 'July'
+elif month == 8:
+    month = 'August'
+elif month == 9:
+    month = 'September'
+elif month == 2:
+    month = 'October'
+elif month == 2:
+    month = 'November'
+elif month == 12:
+    month = 'December'
+    
+newdate = month + ' ' + str(day) + ',' + str(year) 
+
+print(newdate)
+
+8. Find the sum of each row of matrix of size m x n. For example for the following matrix output will be like this :
+
+
+Sum of row 1 = 32
+Sum of row 2 = 31
+Sum of row 3 = 63
+n = int(input("Enter the number of rows:")) 
+m = int(input("Enter the number of columns:")) 
+  
+matrix = [] 
+
+print("Enter values in matrix :") 
+
+# For user input 
+for i in range(n):
+    data =[] 
+    for j in range(m):
+         data.append(int(input())) 
+    matrix.append(data) 
+
+# For printing the matrix 
+for i in range(n): 
+    for j in range(m): 
+        print(matrix[i][j], end = " ") 
+    print()
+
+
+# For printing row wise sum 
+for i in range(n):
+    sum = 0
+    for j in range(m): 
+        sum = sum + matrix[i][j]
+    print('Sum of row',i+1,':',sum) 
+
+==============String===================
+1. Write a program that accepts a string from user. Your program should count and display number of vowels in that string. Solution
+text = input('Enter a string: ')
+vowel = 0
+
+for ch in text:
+    if ch in 'aeiouAEIOU':
+        vowel += 1
+
+print('No of vowels are', vowel)
+2. Write a program that reads a string from keyboard and display:
+* The number of uppercase letters in the string
+* The number of lowercase letters in the string
+* The number of digits in the string
+* The number of whitespace characters in the string Solution
+text = input('Enter a string: ')
+lower = upper = digit = space = 0
+
+for ch in text:
+    if ch.isupper():
+        upper += 1
+    elif ch.islower():
+        lower += 1
+    elif ch.isdigit():
+        digit += 1
+    elif ch == ' ':
+        space += 1
+
+print('The number of uppercase letters:', upper)
+print('The number of lowercase letters:', lower)
+print('The number of digits:', digit)
+print('The number of whitespace characters:', space)
+3. Write a Python program that accepts a string from user. Your program should create and display a new string where the first and last characters have been exchanged.
+
+For example if the user enters the string 'HELLO' then new string would be 'OELLH' Solution
+text = input('Enter a string: ')
+newtext = text[-1]+text[1:-1]+text[0]
+print('New string:', newtext)
+4. Write a Python program that accepts a string from user. Your program should create a new string in reverse of first string and display it.
+
+For example if the user enters the string 'EXAM' then new string would be 'MAXE' Solution
+#1
+
+text = input('Enter a string: ')
+newtext = ''
+for ch in text:
+    newtext = ch + newtext
+print('New string:', newtext)
+#2
+
+text = input('Enter a string: ')
+newtext = text[::-1]
+print('New string:', newtext)
+5. Write a Python program that accepts a string from user. Your program should create a new string by shifting one position to left.
+
+For example if the user enters the string 'examination 2021' then new string would be 'xamination 2021e' Solution
+text = input('Enter a string: ')
+newtext = text[1:] + text[0]
+print('New string:', newtext)
+6. Write a program that asks the user to input his name and print its initials. Assuming that the user always types first name, middle name and last name and does not include any unnecessary spaces.
+
+For example, if the user enters Ajay Kumar Garg the program should display A. K. G.
+Note:Don't use split() method Solution
+text = input('Enter a string: ')
+#index of first space
+space1 = text.find(' ')
+#index of second space
+space2 = text.find(' ',space1+1)
+newtext = text[0] +'. '  + text[space1+1] +'. ' + text[space2+1] +'.'
+print('New string:', newtext)
+7. A palindrome is a string that reads the same backward as forward. For example, the words dad, madam and radar are all palindromes. Write a programs that determines whether the string is a palindrome.
+
+Note: do not use reverse() method Solution
+#1
+
+text = input('Enter a string: ')
+length = len(text)
+
+flag = True
+
+for i in range(0,length//2):
+    if text[i] != text[length-1-i]:
+        flag = False
+        break
+
+if flag == True:
+    print('String is palindrome')
+else:
+    print('String is not palindome')
+#2
+
+text = input('Enter a string: ')
+#reverse string
+newtext = text[::-1]
+
+if text == newtext:
+    print('String is palindrome')
+else:
+    print('String is not palindrome')
+8. Write a program that display following output:
+SHIFT
+HIFTS
+IFTSH
+FTSHI
+TSHIF
+SHIFT Solution
+text = 'SHIFT'
+for i in range(0,6):
+    newtext = text[i:] + text[:i]
+    print(newtext)
+
+9. Write a program in python that accepts a string to setup a passwords. Your entered password must meet the following requirements:
+
+The password must be at least eight characters long.
+It must contain at least one uppercase letter.
+It must contain at least one lowercase letter.
+It must contain at least one numeric digit.
+Your program should should perform this validation. Solution
+length = lower = upper = digit = False
+
+password = input('Enter the password: ')
+
+if len(password)>= 8:
+    length = True
+    
+    for letter in password:
+        if letter.islower():
+            lower = True
+        elif letter.isupper():
+            upper = True
+        elif letter.isdigit():
+            digit = True
+
+
+if length and lower and upper and digit:
+    print('That is a valid password.')
+else:
+    print('That password is not valid.')
+====================Class and Object===========
+#empty class employee
+
+class Employee:
+    pass
+obj1 = Employee()
+obj1.name = 'Nikhil'
+obj1.office = 'NIST'
+
+obj2 = Employee()
+obj2.name = 'Abhinav'
+obj2.office = 'NIST'
+obj2.phone = 1234567889
+
+print("obj1 Details:")
+print("Name:", obj1.name)
+print("Office:", obj1.office)
+print()
+  
+print("obj2 Details:")
+print("Name:", obj2.name)
+print("Office:", obj2.office)
+print("Phone:", obj2.phone)
+
+
+#copy object
+
+class MyClass(object):
+    def _init_(self):
+        super(MyClass, self)._init_()
+        self.foo = 1
+        self.bar = 2
+obj1 = MyClass()
+obj2 = MyClass()
+
+obj1.foo = 25
+obj2._dict.update(obj1.dict_)
+ 
+print(obj1.foo)
+print(obj2.foo)
+
+
+#assign values to data attributes
+
+class Employee:
+        def _init_(self, salary, name):
+                self.salary = salary
+                self.name = name
+ 
+ 
+emp1 = Employee(10000, "John Doe")
+print(emp1.salary)
+print(emp1.name)
+
+
+#create & use static variable
+
+class Test:
+    a=10
+    b = 20
+    def printVal(self):
+        print("Value of A:", Test.a)
+        print("Value of B:", Test.b)
+
+t = Test()
+t.printVal()
+
+#calling static method
+
+class Music:
+    @staticmethod
+    def play():
+        print("playing music")
+    def stop(self):
+        print("stop playing")
+Music.play()
+obj = Music()
+obj.stop()
+
+================Exception=============
+#ZeroDivisionError
+
+def divide():
+    try:
+        a=int(input("Enter A: "))
+        b=int(input("Enter B: "))
+        c= a/b
+        print("Result: ",c)
+    except ZeroDivisionError:
+        print("Denominator should not be zero!")
+divide()        
+        
+
+#else with try except
+
+def divide():
+    try:
+        a=int(input("Enter A: "))
+        b=int(input("Enter B: "))
+        c= a/b
+    except ZeroDivisionError:
+        print("Denominator should not be zero!")
+    else:
+        print("Result: ",c)
+divide()        
+        
+
+#finally with else
+
+def divide():
+    try:
+        a=int(input("Enter A: "))
+        b=int(input("Enter B: "))
+        c= a/b
+    except ZeroDivisionError:
+        print("Denominator should not be zero!")
+    else:
+        print("Result: ",c)
+    finally:
+        print("The Program executed successfully!")
+divide()        
+        
+
+#ValueError
+
+def read_age():
+    age = int(input("Enter your age: "))
+    if age < 0 or age >100:
+        raise ValueError("Invalid age")
+    return age
+try:
+    val = read_age()
+    print("Your age is ",val)
+except ValueError as e:
+    print(e)
+
+
+#TypeError & ZeroDivisionError
+
+a=input("enter a: ")
+b=input("enter b: ")
+c=input("enter c: ")
+try:
+    print("Result: ",int(a)/int(b))
+    print(int(a)+c)
+except TypeError:
+    
+    print("You added values of incompatible types")
+except ZeroDivisionError:
+    print("You divided by 0")
+
+
+#NameError
+
+try:
+        a=int(input("Enter A: "))
+        b=int(input("Enter B: "))
+        add
+        print(sum)
+except NameError:
+           print("sum does not exist")        
+
+#IOError
+
+def readFile():
+    try:
+        file = open('test.txt', 'r')
+except EOFError as e:
+    print(e)
+except IOError as e:
+readFile()
+
+

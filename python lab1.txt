@@ -1,0 +1,138 @@
+(1)cm to inches & foot
+
+h=float(input("enter height in centimeter: "))
+hi=(1/2.54)*h
+hf=(1/12)*hi
+print("height in inches: ",hi)
+print("height in foot: ",hf)
+
+(2)simple interest
+
+p=int(input("enter principal amount: "))
+r=float(input("enter rate of interest: "))
+t=int(input("enter no. of years: "))
+si=(p*r*t)/100
+print("Simple interest: ",si)
+
+(3)second to h,m,s
+
+s=int(input("enter time in seconds: "))
+s= s % (24*3600)
+h= s // 3600
+s %= 3600
+m= s//60
+s %= 60
+print("hours: ",h)
+print("min: ",m)
+print("seconds: ",s)
+
+(4)swaping with temp variable
+
+a=int(input("enter A: "))
+b=int(input("enter B: "))
+temp=a
+a=b
+b=temp
+print("After swaping: ")
+print("value of A: ",a)
+print("value of B: ",b)
+
+(5)swaping with no extra(no temp) variable
+
+a=int(input("enter A: "))
+b=int(input("enter B: "))
+a,b=b,a
+print("After swaping: ")
+print("value of A: ",a)
+print("value of B: ",b)
+
+
+(6)area of circle
+
+import math
+r=float(input("enter radius: "))
+ci=2*math.pi*r
+a=math.pi*r*r
+print("circumference: %.2f "% ci,"cm")
+print("area: %.3f" %a,"cm sq")
+
+(7)area of rectangle
+
+l=int(input("enter lenght: "))
+b=int(input("enter width: "))
+p= 2*(l+b)
+a= l*b
+print("perimeter:",p,"cm")
+print("area:",a,"cm")
+
+(8)area of scalene triangle
+
+import math
+s1=float(input("enter 1st side: "))
+s2=float(input("enter 2nd side: "))
+s3=float(input("enter 3rd side: "))
+s=(s1+s2+s3)/2
+a=math.sqrt(s*(s-s1)*(s-s2)*(s-s3))
+print("area: %.3f"%a)
+
+(9)find quotient & remainder
+
+a=int(input("enter A: "))
+b=int(input("enter B: "))
+q=a/b
+r=a % b
+print("quotient: ",q)
+print("remainder: ",r)
+
+(10)degree to radian
+
+import math
+d=float(input("enter angle in degree: "))
+r=math.pi*(d/180)
+print("angle in radian: ",r)
+
+(11)area of trapezium
+
+a=float(input("enter 1st side: "))
+b=float(input("enter 2nd side: "))
+h=float(input("enter height: "))
+a= 0.5*(a+b)*h
+print("area: %.3f"%a)
+
+(12)sum of 1st n numbers
+
+n=int(input("enter the value of n: "))
+s=(n*(n+1)/2)
+print("Required Sum: ",s)
+
+(13)sum of digits
+
+n=input("enter a number: ")
+s=0
+for i in n:
+    s= s+int(i)
+print("sum of digits:",s)
+
+(14)square root of a number
+
+import math
+n=float(input("enter a number: "))
+if(n>=0):
+    sq=math.sqrt(n)
+else:
+    print("enter a positive no.")
+print("suare root:",sq)    
+    
+(15)compound interest
+
+p=int(input("enter principal amount: "))
+r=float(input("enter rate of interest: "))
+t=int(input("enter no. of years: "))
+a=p*(pow((1+r/100),t))
+ci=a - p
+print("compound interest:",ci)
+print("Total amount:",a)
+    
+
+
+

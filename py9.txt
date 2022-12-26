@@ -1,0 +1,133 @@
+#create class plant 
+
+class plant:
+    def __init__(self,name,size):
+        plant.name=name
+        plant.size=size
+    def display(self):
+        print("Plant name is: ",self.name)
+        print("Plant size is: ",self.size,"cm")
+p1=plant('Rose',25)
+p1.display()
+p2=plant('Sunflower',35)
+p2.display()
+p3=plant('Hibiscus',50)
+p3.display()
+
+
+#create class node
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.leftChild = None
+        self.rightChild = None
+    def PrintTree(self):
+        print(self.data)
+root = Node(27)
+root.PrintTree()
+
+
+#empty class employee
+
+class Employee:
+    pass
+obj1 = Employee()
+obj1.name = 'Nikhil'
+obj1.office = 'NIST'
+
+obj2 = Employee()
+obj2.name = 'Abhinav'
+obj2.office = 'NIST'
+obj2.phone = 1234567889
+
+print("obj1 Details:")
+print("Name:", obj1.name)
+print("Office:", obj1.office)
+print()
+  
+print("obj2 Details:")
+print("Name:", obj2.name)
+print("Office:", obj2.office)
+print("Phone:", obj2.phone)
+
+
+#copy object
+
+class MyClass(object):
+    def __init__(self):
+        super(MyClass, self).__init__()
+        self.foo = 1
+        self.bar = 2
+obj1 = MyClass()
+obj2 = MyClass()
+
+obj1.foo = 25
+obj2.__dict__.update(obj1.__dict__)
+ 
+print(obj1.foo)
+print(obj2.foo)
+
+
+#assign values to data attributes
+
+class Employee:
+        def __init__(self, salary, name):
+                self.salary = salary
+                self.name = name
+ 
+ 
+emp1 = Employee(10000, "John Doe")
+print(emp1.salary)
+print(emp1.name)
+
+
+#create & use static variable
+
+class Test:
+    a=10
+    b = 20
+    def printVal(self):
+        print("Value of A:", Test.a)
+        print("Value of B:", Test.b)
+
+t = Test()
+t.printVal()
+
+
+#create three class & print result of it
+
+class Shape():
+    w=int(input("enter width: ")) 
+    h=int(input("enter height: ")) 
+class Rectangle(Shape):
+        def init (self, w, h): 
+            self.w = w
+            self.h = h
+        def area(self):
+            print("Area of the Rectangle is :", self.w*self.h," cmsq")
+class Triangle(Shape):
+        def init (self, w, h): 
+            self.w = w
+            self.h= h
+        def area(self):
+            print("Area of the Triangle is :", (self.w*self.h)/2," cmsq")
+r =Rectangle()
+r.area() 
+t =Triangle()
+t.area()
+
+
+#calling static method
+
+class Music:
+    @staticmethod
+    def play():
+        print("playing music")
+    def stop(self):
+        print("stop playing")
+Music.play()
+obj = Music()
+obj.stop()
+
+
