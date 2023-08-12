@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Favorite Things</title>
+  <style>
+    body {
+      background-color: lightpink;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: xx-large;
+    }
+
+    h2 {
+      font-size: large;
+    }
+
+    p {
+      font-size: 4em;
+      font-family: Comic Sans MS;
+    }
+
+    ul {
+      font-size: 4em;
+      color: blue;
+    }
+
+    li {
+      margin-left: 20px;
+    }
+
+    ol {
+      font-size: 4em;
+      color: green;
+    }
+
+    dl {
+      font-size: 4em;
+      color: red;
+    }
+
+    dd {
+      margin-left: 20px;
+    }
+
+    img {
+      width: 100px;
+      margin: 10px auto;
+    }
+
+    table {
+      border: 1px solid black;
+    }
+
+    th {
+      background-color: lightgray;
+      text-align: center;
+    }
+
+    td {
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Favorite Things</h1>
+
+  <hr width="75%" size="8" color="black" />
+
+  <p>My name is Bard and I am a student at Thurston High School. This web page lists my favorite foods, favorite television shows, and favorite movies.</p>
+
+  <h2>My Favorite Foods</h2>
+
+  <ul>
+    <li>Pizza</li>
+    <li>Ice cream</li>
+    <li>Burgers</li>
+    <li>Chocolate</li>
+    <li>Sushi</li>
+  </ul>
+
+  <h2>My Favorite TV Shows</h2>
+
+  <ol>
+    <li>The Office</li>
+    <li>Friends</li>
+    <li>The Big Bang Theory</li>
+    <li>Game of Thrones</li>
+    <li>Stranger Things</li>
+  </ol>
+
+  <h2>My Favorite Movies</h2>
+
+  <dl>
+    <dt>The Shawshank Redemption</dt>
+    <dd>This movie is a classic and it has such a great story. I love the characters and the way the movie is filmed.</dd>
+    <dt>The Lord of the Rings trilogy</dt>
+    <dd>I'm a big fan of fantasy movies and these are some of the best ever made. The special effects are amazing and the story is epic.</dd>
+    <dt>The Dark Knight</dt>
+    <dd>This is one of the best superhero movies ever made. The acting, directing, and action scenes are all top-notch.</dd>
+    <dt>Pulp Fiction</dt>
+    <dd>This movie is a cult classic and it's one of the most quotable movies ever made. The dialogue is sharp and the violence is over the top.</dd>
+    <dt>The Godfather</dt>
+    <dd>This is another classic movie that everyone should see. The acting is superb and the story is gripping.</dd>
+  </dl>
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Pizza_slice.jpg/1200px-Pizza_slice.jpg" alt="Pizza" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Ice_cream_cone.jpg/1200px-Ice_cream_cone.jpg" alt="Ice cream" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Burger.jpg/1200px-Burger.jpg" alt="Burger" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Chocolate_bar.jpg/1200px-Chocolate_bar.jpg" alt="Chocolate" />
