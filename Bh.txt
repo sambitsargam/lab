@@ -1,0 +1,57 @@
+<html>
+<head>
+<style>
+body {
+  background-color: #ffffff;
+}
+
+table {
+  width: 50%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+th, td {
+  text-align: center;
+  padding: 5px;
+}
+
+th {
+  background-color: #dddddd;
+}
+
+img {
+  width: 100%;
+}
+</style>
+</head>
+<body>
+<table>
+  <tr>
+    <th>Things I Like</th>
+    <th>Image</th>
+  </tr>
+  <tr>
+    <td>Dogs</td>
+    <td><img src="images/dog.jpg" alt="Dog"></td>
+  </tr>
+  <tr>
+    <td>Books</td>
+    <td><img src="images/book.jpg" alt="Book"></td>
+  </tr>
+  <tr>
+    <td>Travel</td>
+    <td><img src="images/travel.jpg" alt="Travel"></td>
+  </tr>
+  <tr>
+    <td>Coding</td>
+    <td><img src="images/coding.jpg" alt="Coding"></td>
+  </tr>
+  <tr>
+    <td>Learning</td>
+    <td><img src="images/learning.jpg" alt="Learning"></td>
+  </tr>
+</table>
+</body>
+</html>
