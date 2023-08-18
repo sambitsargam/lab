@@ -1,0 +1,35 @@
+.button{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.btn{
+    border: 1pxsolid#fff;
+    padding: 10px30px;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.6sease;
+}
+.btn:hover{
+    background-color: #fff;
+    color: #000;
+}
+ulli{
+    display: inline-block;
+}
+ullia{
+    text-decoration: none;
+    color: #fff;
+    padding: 5px20px;
+    border: 1pxsolidtransparent;
+    transition: 0.6sease;
+}
+ullia:hover{
+    background-color: #fff;
+    color: #000;
+}
+ulli.activea{
+    background-color: #fff;
+    color: #000; 
+}
