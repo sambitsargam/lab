@@ -1,4 +1,4 @@
-body, h2, p {
+body{
 
 margin: 0;
 
@@ -6,41 +6,50 @@ padding: 0;
 
 }
 
-/* Styling for the card component */
+.bg{
 
-.card {
+position: relative;
 
-width: 300px;
+background: #000 url(city.jpg);
 
-background-color: #f4f4f4;
+height: 100vh;
 
-border-radius: 10px;
+background-repeat: repeat-x;
 
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+background-size: cover;
+
+background-position: 0 0;
 
 overflow: hidden;
 
-margin: 20px auto;
+animation: animate 20s linear infinite;
 
 }
-.card img {
-width: 100%;
-height: auto;
-display: block;
-}
-/* Styling for card content */
-.card-content {
-padding: 20px;
-}
-/* Styling for card title */
-.card-content h2 {
-font-size: 24px;
-margin-bottom: 10px;
-}
-/* Styling for card description */
-.card-content p {
-font-size: 16px;
-color: #555;
-line-height: 1.5;
+
+.car{
+
+height: 30vh;
+
+position: absolute;
+
+bottom: 10px;
+
+left: 10px;
+
 }
 
+@keyframes animate{
+
+from{
+
+background-position: 0 0;
+
+}
+
+to{
+
+background-position: 100% 0;
+
+}
+
+}
