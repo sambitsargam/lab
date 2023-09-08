@@ -1,0 +1,127 @@
+<html>
+
+<!-- <form action="file:///C:/Users/Santosh%20Sir/Desktop/IWT_6th_SEM/CLASS_8/test.htm" method="post"> -->
+
+<body onload="name_active()">
+
+<marquee direction= "top" bgcolor="red" ><font color="white"> IT IS MARQUEE</font></marquee>
+<marquee direction= "up" >IT IS MARQUEE</marquee>
+<marquee direction= "down" >IT IS MARQUEE</marquee>
+
+<!--<form method="post" name="frm_test" >-->
+<form>
+
+
+<br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="user_name" placeholder="your name" onblur="show()"/>
+</br>
+
+<br>
+        <label for="pass">Pass Word:</label>
+        <input type="password" id="pass" name="user_pass" />
+</br>
+
+<br>
+        <label for="mail">E-mail:</label>
+        <input type="email" id="mail" name="user_mail" onblur="ValidateEmail()"/>
+</br>
+
+
+<br>
+	<input type= "radio" name=r1 > xyz1
+	<input type= "radio" name=r1 > xyz2
+	<input type= "radio" name=r1 > xyz3
+</br>
+
+<br>
+	<input type= "checkbox" name=c1 checked="checked"> abc1
+	<input type= "checkbox" name=c2 > abc2
+	<input type= "checkbox" name=c3 > abc3
+</br>
+
+<div>
+        <label for="msg">Message:</label>
+        <textarea id="msg" name="user_message"></textarea>
+</div>
+    
+<div>
+
+        <input type="button" onclick=subm() value="Send your message"> 
+	
+	<!--<input type="submit" value="submit info" >-->
+
+	
+</div>
+
+</form>
+
+<script>
+
+	function show()
+	{
+		
+		var nm= window.document.frm_test.user_name.value;
+		
+
+
+
+		if (nm.length == 0 || nm ==''|| nm == null )
+		{
+		alert("enter a proper name ");
+
+<!--		document.writeln("Enter a name::");-->
+		document.frm_test.user_name.focus();
+                document.frm_test.user_name.select();
+		 
+		return true;
+		}
+
+
+		                
+		 <!--window.document.frm_test.submit();	
+	}
+
+	
+function ValidateEmail()  
+  {  
+alert("JUST A TEST FOR MAIL");
+  var uemail = document.frm_test.user_mail;  
+  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;  
+  if(user_mail.value.match(mailformat))  
+  {  
+  document.frm_test.user_mail.focus();  
+  document.frm_test.user_mail.select();
+  return true;  
+  }  
+  else  
+  {  
+  alert("You have entered an invalid email address!");  
+  document.frm_test.user_mail.focus();  
+  return false;  
+  }  
+  }  
+	
+
+function name_active()
+	{
+	alert("TEST JAVASCRIPT FORM");
+	window.document.frm_test.user_name.value='';
+	window.document.frm_test.user_mail.value='';
+
+	window.document.frm_test.user_name.focus();
+	}
+
+function subm()
+{
+alert("sdasd");
+
+confirm("DO YOU WANT TO SUBMIT");
+}
+
+	
+
+</script>
+
+</body>
+</html>
