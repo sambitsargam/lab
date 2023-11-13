@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Children's Day Greeting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-image: url('https://bafybeifwaxkflnlmd3oeojutwda54zqd4rujjbjltz7ccpa7ef32teql2q.ipfs.w3s.link/children-s-silhouettes-showing-muscles-sunset.jpg');
+            background-repeat: no-repeat;
+            background-size:100% 100vh;
+            
+        }
+
+        #greeting-container {
+            display: none;
+            margin-top: 20px;
+            color: aliceblue;
+        }
+
+        #display-image{
+            border-radius: 50%;
+            height:150px;
+            width:150px;
+        }
+        .name{
+            margin: 10px;
+
+        }
+        .pic{
+            margin: 10px;
+        }
+        .button{
+            margin:10px;
+        }
+        #buttonn{
+            width: 150px;
+            height:40px;
+            color: rgb(223, 227, 213);
+            background-color: rgb(58, 58, 193);
+            border-radius: 10px;
+            
+        
+        }
+        #buttonn:hover{
+            color: rgb(58, 58, 193);
+            background-color: rgb(223, 227, 213) ;
+        }
+        .animate-charcter
+        {
+          text-transform: uppercase;
+         background-image: linear-gradient(
+          -225deg,
+          #312267 0%,
+           #573080 29%,
+           #ff1361 67%,
+            rgb(228, 228, 121) 100%
+         );
+          background-size: auto auto;
+          background-clip: border-box;
+          background-size: 200% auto;
+          color: #fff;
+         background-clip: text;
+          text-fill-color: transparent;
+          -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 2s linear infinite;
+            display: inline-block;
+      font-size: 35px;
+}
+.sentence{
+    display: block;
+    margin: 4px;
+}
+
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+    </style>
+</head>
+<body>
+    <!-- <h2>Children's Day Greeting</h2> -->
+
+    <div id="form-container">
+        <h2 class="animate-charcter"> Enter your details below.</h2>
+        <div class="name">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+            <br>
+        </div>
+        <div class="pic">
+            <label for="image">Your Picture:</label>
+            <input type="file" id="image" accept="image/*" required>
+            <br>
+        </div>
+        <div class="button">
+            <button id="buttonn" onclick="showGreeting()">Generate Greeting</button>
+        </div>
+        
+    </div>
+
+    <div id="greeting-container">
+        <h1 class="animate-charcter sentence" style="color: black;"> WISHES FROM NIST CLOUD COMPUTING CLUB</h1>
+        <h2 class="animate-charcter sentence" style="color: black;">Happy Childrens day to you!!!</h2>
+        <img id="display-image" alt="User's Picture">
+        <h1><span class="animate-charcter" id="display-name"></span></h1>
+        <div class="button">
+            <button id="buttonn" class="back" onclick="backtoCountdown()">back to Countdown</button>
+        </div>
+    </div>
+    
+
+    <script>
+        function showGreeting() {
+            var name = document.getElementById('name').value;
+            var imageInput = document.getElementById('image');
+            var image = document.getElementById('display-image');
+            var greetingContainer = document.getElementById('greeting-container');
+            var formContainer = document.getElementById('form-container');
+
+            // Display the greeting
+            document.getElementById('display-name').innerText = name;
+            image.src = URL.createObjectURL(imageInput.files[0]);
+            greetingContainer.style.display = 'block';
+            formContainer.style.display = 'none';
+        }
+        function backtoCountdown(){
+            window.location.href="index.html"
+        }
+
+
+    </script>
+</body>
+</html>
