@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        img {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="captcha">Captcha:</label>
+        <img id="captchaImage" src="" alt="Captcha Image">
+        <input type="text" id="captcha" name="captcha" required>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+        <button type="reset" class="reset">Reset</button>
+    </form>
+</div>
+
+<script>
+  
+    function generateCaptcha(length) {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let captcha = '';
+        for (let i = 0; i < length; i++) {
+            const randomIndex = Math.floor(Math.random() * characters.length);
+            captcha += characters.charAt(randomIndex);
+        }
+        return captcha;
+    }
+
+    function setCaptcha() {
+        const captchaLength = 6; // You can adjust the length of the captcha
+        const captchaValue = generateCaptcha(captchaLength);
+        const captchaImage = document.getElementById('captchaImage');
+        captchaImage.src = 'https://via.placeholder.com/100x40?text=' + captchaValue; // You can replace this URL with your captcha image path
+        return captchaValue;
+    }
+    function validateCaptcha() {
+        const enteredCaptcha = document.getElementById('captcha').value;
+        const generatedCaptcha = setCaptcha();
+        if (enteredCaptcha === generatedCaptcha) {
+            return true;
+        } else {
+            alert('Captcha is incorrect. Please try again.');
+            return false;
+        }
+    }
+
+    function submitForm() {
+        if (validateCaptcha()) {
+            // Your login logic goes here
+            alert('Login successful!');
+        }
+    }
+    setCaptcha();
+</script>
+</body>
+</html>
+
+====== 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digit Input Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .digit-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="digit-container">
+    <h2>Digit Input</h2>
+    <form onsubmit="return validateForm()">
+      <label for="digitInput">Enter Digits:</label>
+      <input type="text" id="digitInput" name="digitInput" pattern="[0-9]+" title="Please enter only digits" required>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      var digitInput = document.getElementById("digitInput").value;
+
+      if (!/^[0-9]+$/.test(digitInput)) {
+        alert("Please enter only digits.");
+        return false;
+      }
+    }
+  </script>
+</body>
+</html>
+
+======== 
+        
+
+      
+
+=======
+
+    
